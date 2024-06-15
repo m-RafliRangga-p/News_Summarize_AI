@@ -19,6 +19,7 @@ def summarize():
     title.config(state='normal')
     author.config(state='normal')
     publication.config(state='normal')
+    keyword.config(state='normal')
     summary.config(state='normal')
     Sentiment.config(state='normal')
 
@@ -31,6 +32,9 @@ def summarize():
     publication.delete('1.0', "end")
     publication.insert('1.0', article.publish_date)
 
+    keyword.delete('1.0', "end")
+    keyword.insert('1.0', article.keywords)
+
     summary.delete('1.0', "end")
     summary.insert('1.0', article.summary)
 
@@ -41,6 +45,7 @@ def summarize():
     title.config(state='disabled')
     author.config(state='disabled')
     publication.config(state='disabled')
+    keyword.config(state='disabled')
     summary.config(state='disabled')
     Sentiment.config(state='disabled')
 
@@ -53,51 +58,78 @@ def summarize():
 
 root = tk.Tk()
 root.title("News Summarizer")
-root.geometry('1200x600')
+root.geometry('1280x720')
+root.config(bg='#660066')
 
-tlabel = tk.Label(root, text="Title")
-tlabel.pack()
+# Dapatkan ukuran layar
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+# Ukuran jendela
+window_width = 1280
+window_height = 720
+
+# Hitung posisi x dan y untuk menempatkan jendela di tengah layar
+position_x = (screen_width // 2) - (window_width // 2)
+position_y = (screen_height // 3) - (window_height // 3)
+
+# Set posisi jendela
+root.geometry(f'{window_width}x{window_height}+{position_x}+{position_y}')
+
+font_style = ('Helvetica', 12, 'bold')
+
+tlabel = tk.Label(root, text="Judul" , bg='#660066' , fg='#FFCC00', font=font_style)
+tlabel.pack(pady=(15 , 0))
 
 title = tk.Text(root, height=1, width=140)
-title.config(state='disabled', bg='#dddddd')
+title.config(state='disabled', bg='#ddd')
 title.pack()
 
-alabel = tk.Label(root, text="Authors")
+alabel = tk.Label(root, text="Penulis", bg='#660066' , fg='#FFCC00', font=font_style)
 alabel.pack()
 
 author = tk.Text(root, height=1, width=140)
-author.config(state='disabled', bg='#dddddd')
+author.config(state='disabled', bg='#ddd')
 author.pack()
 
-plabel = tk.Label(root, text="Publication Date")
+plabel = tk.Label(root, text="Tanggal Publikasi", bg='#660066' , fg='#FFCC00', font=font_style)
 plabel.pack()
 
 publication = tk.Text(root, height=1, width=140)
-publication.config(state='disabled', bg='#dddddd')
+publication.config(state='disabled', bg='#ddd')
 publication.pack()
 
-slabel = tk.Label(root, text="Summary")
+klabel = tk.Label(root, text="Kata Kunci", bg='#660066' , fg='#FFCC00', font=font_style)
+klabel.pack()
+
+keyword = tk.Text(root, height=1, width=140)
+keyword.config(state='disabled', bg='#ddd')
+keyword.pack()
+
+slabel = tk.Label(root, text="Rangkuman", bg='#660066' , fg='#FFCC00', font=font_style)
 slabel.pack()
 
 summary = tk.Text(root, height=20, width=140)
-summary.config(state='disabled', bg='#dddddd')
+summary.config(state='disabled', bg='#ddd')
 summary.pack()
 
-selabel = tk.Label(root, text="Sentiment Analysis")
+selabel = tk.Label(root, text="Sentiment Analysis", bg='#660066' , fg='#FFCC00', font=font_style)
 selabel.pack()
 
 Sentiment = tk.Text(root, height=1, width=140)
-Sentiment.config(state='disabled', bg='#dddddd')
+Sentiment.config(state='disabled', bg='#ddd')
 Sentiment.pack()
 
-ulabel = tk.Label(root, text="URL")
+ulabel = tk.Label(root, text="URL", bg='#660066' , fg='#FFCC00', font=font_style)
 ulabel.pack()
 
 utext = tk.Text(root, height=1, width=140)
+utext.config(bg='#FFCC00')
 utext.pack()
 
-btn = tk.Button(root, text="Summarize", command=summarize)
-btn.pack()
+btn = tk.Button(root, text="Rangkum", command=summarize)
+btn.config(bg='#ddd', fg='#660066', font=font_style)
+btn.pack(pady=(25,0))
 
 
 
