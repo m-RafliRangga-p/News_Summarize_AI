@@ -15,6 +15,6 @@ All credit goes to @NeuralNine on YouTube in the video https://www.youtube.com/w
 # Customizations
 1. **Change Theme Color and Layout**: Adjust the theme color and layout as desired.
 2. **Change Language to Indonesian**: Modify the application to display text in Indonesian.
-3. **Add Keyword Form**: Implement a form to input and display news keywords.
+3. **Add Keyword Form**: Implement a form to display news keywords.
 
 ## Custom made by Mr.Rp (Muhammad Rafli Rangga Pratama - 22.11.4668)
